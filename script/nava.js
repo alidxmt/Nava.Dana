@@ -24,7 +24,7 @@ function play(Lfreq, Lgain) {
 function BeginPlay() {
     let _vl = document.getElementById('btn-bgntoPlay');
     if (_vl.value=='begin') {
-        oscillator.start();
+        oscillator.start(); 
         _vl.value = 'stop';
     }
     else {
