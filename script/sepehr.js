@@ -209,6 +209,12 @@ function BeNavazAdd() {
     }
 }
 function BeNavaz() {   
+    let _btnEpV = document.getElementById('btn-playforme');
+    if (_btnEpV.value=='BeNavaz') {
+        _btnEpV.value = 'NaNavaz'
+    } else {
+        _btnEpV.value = 'BeNavaz'
+    }
     BenavazStatus = BenavazStatus*(-1);
     BeNavazAdd();
-}
+}   
