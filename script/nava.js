@@ -1,11 +1,12 @@
 var oscillator = null;
 var isPlaying = false;
-var context = new AudioContext();
-var volume = context.createGain();
+
 function dec(decreaseTime) {
     volume.gain.exponentialRampToValueAtTime(0.00001,context.currentTime+decreaseTime)
 }
 function makectn() {
+        var context = new AudioContext();
+        var volume = context.createGain();
         volume.connect(context.destination);
         oscillator = context.createOscillator();
         oscillator.type = 'sine';
@@ -13,7 +14,7 @@ function makectn() {
         oscillator.frequency.setValueAtTime(0, context.currentTime);
         oscillator.connect(volume);
 }
-makectn();
+
 
 function play(Lfreq, Lgain) {
 
@@ -24,6 +25,7 @@ function play(Lfreq, Lgain) {
 function BeginPlay() {
     let _vl = document.getElementById('btn-bgntoPlay');
     if (_vl.value=='begin') {
+        makectn();
         oscillator.start(); 
         _vl.value = 'stop';
     }
